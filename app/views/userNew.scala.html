@@ -1,0 +1,11 @@
+@(message: String)
+
+@main("Neuer Benutzer"){
+
+<h2>@message</h2>
+<form action="@routes.Users.addUser()" method="POST">
+    Vorname: <input type="text" name="firstname" required="required"/>
+    Nachname: <input type="text" name="lastname" required="required"/>
+    Email: <input type="email" name="email" required="required" />
+    <input type="submit" value="anlegen"/>
+    }

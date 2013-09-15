@@ -1,0 +1,28 @@
+@(users: List[User])
+
+@main("Benutzerverwaltung"){
+
+<h2>Alle Benutzer</h2>
+
+<table>
+    <thead>Alle Benutzer</thead>
+    <tr>
+        <th>#</th>
+        <th>Nachname</th>
+        <th>Vorname</th>
+        <th>Email</th>
+        <th>Rolle</th>
+    </tr>
+    @for(u <- users){
+    <tr>
+        <td><a href=@routes.Users.getUser(u.getId)>@u.getId()</a></td>
+        <td>@u.getFirstName()</td>
+        <td>@u.getLastName()</td>
+        <td>@u.getCredentials().getEmail()</td>
+        <td>@u.getRole().name()</td>
+    </tr>
+    }
+</table>
+
+<a href="@routes.Users.getUserCreationForm()" >Neuen Benutzer anlegen</a>
+}
